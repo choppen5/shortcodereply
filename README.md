@@ -4,10 +4,10 @@ Very basic example of looking at inbound messsages for key words per https://sup
 
 # Install
 
-git clone ..
-cd shortcodereply
-npm install
-node app.js
+git clone  
+cd shortcodereply  
+npm install  
+node app.js  
 
 # Run
 1. Set up ngrok or deply to an accessilbe URL like Heroku

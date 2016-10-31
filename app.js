@@ -15,15 +15,15 @@ app.post('/shortcodereply', function (req, res) {
 
   console.log(`got a body of ${messagebody} from ${sender}`);
 
-  if (messagebody.match(/STOP|END|CANCEL|UNSUBSCRIBE|QUIT/)) {
+  if (messagebody.match(/STOP|END|CANCEL|UNSUBSCRIBE|QUIT/i)) {
     console.log(`matched a stop from ${sender}`);
       //TODO:  do a database update to remove ${sender} from your application when sending outbound messages
     replystring = `You have been unsubscribed from ${shortcode}. Reply START, YES or UNSTOP to begin recieving messages.`;
   
-  } else if (messagebody.match(/HELP|INFO/))  {
+  } else if (messagebody.match(/HELP|INFO/i))  {
     replystring = `Reply with STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, or QUIT to remove yourself.   Reply with START, YES and UNSTOP to opt back in.`;
 
-  } else if (messagebody.match(/START|YES|UNSTOP/)) {
+  } else if (messagebody.match(/START|YES|UNSTOP/i)) {
     replystring = `You will now recieve messages from ${shortcode}`;
     //TODO: do database update to add ${sender} to be allowed 
   } else {
